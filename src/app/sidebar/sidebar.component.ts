@@ -4,7 +4,8 @@ interface Link {
   routerLink: string,
   routerLinkActive: string,
   routerLinkActiveOptions: string,
-  icon: string
+  icon: string,
+  label?: string,
 }
 
 @Component({
@@ -19,6 +20,13 @@ export class SidebarComponent implements OnInit {
 
   constructor() {
     this.links$ = [
+      {
+        routerLink: '',
+        routerLinkActive: 'active',
+        routerLinkActiveOptions: '{exact: true}',
+        icon: 'home',
+        label: 'home'
+      },
       {
         routerLink: 'active',
         routerLinkActive: 'active',
@@ -42,5 +50,4 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
