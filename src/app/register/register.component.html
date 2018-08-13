@@ -1,8 +1,17 @@
-<h1>Register</h1>
+<div class="auth-form">
+  <h1>Register</h1>
 
-<form (submit)="register($event)">
-  <input [(ngModel)]="registerForm.email" type="text" name="email" placeholder="Email" />
-  <input [(ngModel)]="registerForm.password" type="password" name="password" placeholder="Password" />
-  <input [(ngModel)]="registerForm.confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" />
-  <button type="submit" [disabled]="isRegistering">{{isRegistering ? 'Loading...' : 'Submit'}}</button>
-</form>
+  <form (submit)="register($event)">
+    <input [(ngModel)]="registerForm.email" type="text" name="email" placeholder="Email" />
+    <input [(ngModel)]="registerForm.password" type="password" name="password" placeholder="Password" />
+    <input [(ngModel)]="registerForm.confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" />
+    <label for="registerSubmitButton">{{isLoggingIn ? 'Loading...' : 'Submit'}}</label>
+    <button id="registerSubmitButton" type="submit" [disabled]="isRegistering"></button>
+  </form>
+
+  <div class="auth-options">
+    <span>Already registered? </span>
+    <a routerLink="/login">Login</a>
+  </div>
+
+</div>

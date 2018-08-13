@@ -19,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'active',
-    component: ActiveComponent
+    component: ActiveComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'todo/:id',
@@ -28,11 +29,13 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'done',
-    component: DoneComponent
+    component: DoneComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',

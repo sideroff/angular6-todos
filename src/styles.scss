@@ -45,5 +45,45 @@ body {
                 }
             }
         }
+
+        .auth-form {
+            // width: 40%;
+            // margin-left: auto;
+            // margin-right: auto;
+
+            h1 {
+                text-align: center;
+            }
+        }
+
+        form {
+            display: grid;
+            grid-gap: 1rem;
+
+            input {
+                padding: 0.3rem;
+            }
+
+            label {
+                background-color: #2D2E2E;
+                color: white;
+                padding: 0.6rem;
+                cursor: pointer;
+                text-align: center;
+            }
+
+            label:active, label:hover {
+                background-color: #00A8FF;
+                color: white;
+            }
+
+            button[type="submit"] {
+                display: none;
+            }
+        }
+
+        .auth-options {
+            padding-top: 1rem;
+        }
     }
 }

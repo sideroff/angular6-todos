@@ -1,5 +1,15 @@
-<form (submit)="login($event)">
-  <input [(ngModel)]="loginForm.email" type="text" name="email" placeholder="Email" />
-  <input [(ngModel)]="loginForm.password" type="password" name="password" placeholder="Password" />
-  <button type="submit" [disabled]="isLoggingIn">{{isLoggingIn ? 'Loading...' : 'Submit'}}</button>
-</form>
+<div class="auth-form">
+  <h1>Login</h1>
+
+  <form (submit)="login($event)">
+    <input [(ngModel)]="loginForm.email" type="text" name="email" placeholder="Email" />
+    <input [(ngModel)]="loginForm.password" type="password" name="password" placeholder="Password" />
+    <label for="loginSubmitButton">{{isLoggingIn ? 'Loading...' : 'Submit'}}</label>
+    <button id='loginSubmitButton' type="submit" [disabled]="isLoggingIn"></button>
+  </form>
+
+  <div class="auth-options">
+    <span>Don't have an account? </span>
+    <a routerLink="/register">Register</a>
+  </div>
+</div>
