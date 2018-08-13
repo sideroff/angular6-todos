@@ -5,7 +5,9 @@
     <input [(ngModel)]="registerForm.email" type="text" name="email" placeholder="Email" />
     <input [(ngModel)]="registerForm.password" type="password" name="password" placeholder="Password" />
     <input [(ngModel)]="registerForm.confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" />
-    <label for="registerSubmitButton">{{isLoggingIn ? 'Loading...' : 'Submit'}}</label>
+    <label for="registerSubmitButton">
+      <strong>{{isLoggingIn ? 'Loading...' : 'Submit'}}</strong>
+    </label>
     <button id="registerSubmitButton" type="submit" [disabled]="isRegistering"></button>
   </form>
 

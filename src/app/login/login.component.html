@@ -4,7 +4,9 @@
   <form (submit)="login($event)">
     <input [(ngModel)]="loginForm.email" type="text" name="email" placeholder="Email" />
     <input [(ngModel)]="loginForm.password" type="password" name="password" placeholder="Password" />
-    <label for="loginSubmitButton">{{isLoggingIn ? 'Loading...' : 'Submit'}}</label>
+    <label for="loginSubmitButton">
+      <strong>{{isLoggingIn ? 'Loading...' : 'Submit'}}</strong>
+    </label>
     <button id='loginSubmitButton' type="submit" [disabled]="isLoggingIn"></button>
   </form>
 
