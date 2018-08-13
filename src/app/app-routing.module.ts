@@ -10,16 +10,16 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: HomeComponent
+  },
+  {
     path: 'active',
     component: ActiveComponent
   },
   {
     path: 'done',
     component: DoneComponent
-  },
-  {
-    path: '',
-    component: HomeComponent
   },
   {
     path: 'profile',

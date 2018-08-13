@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 interface Link {
   routerLink: string,
   routerLinkActive: string,
-  routerLinkActiveOptions: string,
+  routerLinkActiveOptions?: Object,
   icon: string,
   label?: string,
 }
@@ -21,28 +21,28 @@ export class SidebarComponent implements OnInit {
   constructor() {
     this.links$ = [
       {
-        routerLink: '',
+        routerLink: '/',
         routerLinkActive: 'active',
-        routerLinkActiveOptions: '{exact: true}',
+        routerLinkActiveOptions: { exact: true },
         icon: 'home',
         label: 'home'
       },
       {
         routerLink: 'active',
         routerLinkActive: 'active',
-        routerLinkActiveOptions: '{exact: true}',
+        routerLinkActiveOptions: { exact: true },
         icon: 'notes'
       },
       {
         routerLink: 'done',
         routerLinkActive: 'active',
-        routerLinkActiveOptions: '{exact: true}',
+        routerLinkActiveOptions: { exact: true },
         icon: 'done'
       },
       {
         routerLink: 'profile',
         routerLinkActive: 'active',
-        routerLinkActiveOptions: '{exact: true}',
+        routerLinkActiveOptions: { exact: true },
         icon: 'person'
       },
     ]
