@@ -12,6 +12,9 @@ import { ActiveComponent } from './active/active.component';
 import { DoneComponent } from './done/done.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { AdminComponent } from './admin/admin.component';
     ActiveComponent,
     DoneComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    RegisterComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,7 @@ import { AdminComponent } from './admin/admin.component';
   exports: [
     MatIconModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

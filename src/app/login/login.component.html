@@ -1,5 +1,5 @@
 <form (submit)="login($event)">
-  <input [(ngModel)]="loginForm.username" type="text" name="username" placeholder="Username" />
+  <input [(ngModel)]="loginForm.email" type="text" name="email" placeholder="Email" />
   <input [(ngModel)]="loginForm.password" type="password" name="password" placeholder="Password" />
-  <input type="submit" value="Submit">
+  <button type="submit" [disabled]="isLoggingIn">{{isLoggingIn ? 'Loading...' : 'Submit'}}</button>
 </form>

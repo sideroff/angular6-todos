@@ -45,6 +45,18 @@ export class SidebarComponent implements OnInit {
         routerLinkActiveOptions: { exact: true },
         icon: 'person'
       },
+      {
+        routerLink: 'login',
+        routerLinkActive: 'active',
+        routerLinkActiveOptions: { exact: true },
+        icon: 'note'
+      },
+      {
+        routerLink: 'register',
+        routerLinkActive: 'active',
+        routerLinkActiveOptions: { exact: true },
+        icon: 'note'
+      },
     ]
   }
 

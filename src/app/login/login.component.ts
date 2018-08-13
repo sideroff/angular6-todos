@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { FirebaseService } from '../firebase.service';
 
 @Component({
   selector: 'app-login',
@@ -7,18 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   loginForm = {
-    username: '',
+    email: '',
     password: ''
   }
 
-  constructor() { }
+  isLoggingIn = false
 
-  ngOnInit() {
-  }
+  constructor(private firebase: FirebaseService, private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit() { }
 
   login(event) {
     event.preventDefault()
-    console.log(this.loginForm)
-  }
 
+    this.isLoggingIn = true
+    this.firebase.instance.auth().signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then(response => {
+      // this.popupService.addMessage('success', 'You have successfully logged in!')
+      console.log('logged in', response)
+
+      this.isLoggingIn = false
+
+      let url = this.route.snapshot.queryParams.returnUrl || ''
+
+      this.router.navigateByUrl(url)
+    }).catch(error => {
+      // this.popupService.addMessage('error', error.message)
+      console.log('error logging in', error)
+
+      this.isLoggingIn = false
+    })
+  }
 }

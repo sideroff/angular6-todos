@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 import { ActiveComponent } from './active/active.component';
 import { DoneComponent } from './done/done.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
+import { TodoComponent } from './todo/todo.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,11 @@ const routes: Routes = [
   {
     path: 'active',
     component: ActiveComponent
+  },
+  {
+    path: 'todo/:id',
+    component: TodoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'admin',
@@ -33,7 +40,12 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
 ];
 
