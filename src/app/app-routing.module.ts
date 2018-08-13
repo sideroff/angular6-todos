@@ -6,6 +6,8 @@ import { ActiveComponent } from './active/active.component';
 import { DoneComponent } from './done/done.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [
@@ -18,8 +20,16 @@ const routes: Routes = [
     component: ActiveComponent
   },
   {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
     path: 'done',
     component: DoneComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'profile',

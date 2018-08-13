@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ActiveComponent } from './active/active.component';
 import { DoneComponent } from './done/done.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { DoneComponent } from './done/done.component';
     HomeComponent,
     ProfileComponent,
     ActiveComponent,
-    DoneComponent
+    DoneComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   exports: [
     MatIconModule,
