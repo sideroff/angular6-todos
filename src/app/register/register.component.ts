@@ -22,7 +22,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register() {
+  register(event) {
+    event.preventDefault()
+
     this.isRegistering = true
     this.firebase.instance.auth().createUserWithEmailAndPassword(this.registerForm.email, this.registerForm.password).then(response => {
       console.log('registration successful', response)
