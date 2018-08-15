@@ -27,9 +27,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/vex-js/dist/css/vex.css",
+              "node_modules/vex-js/dist/css/vex-theme-os.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/vex-js/dist/js/vex.combined.min.js"
+            ]
           },
           "configurations": {
             "production": {

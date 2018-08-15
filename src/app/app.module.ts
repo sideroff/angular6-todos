@@ -15,6 +15,14 @@ import { AdminComponent } from './admin/admin.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { TodoComponent } from './todo/todo.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from './../environments/environment';
+import { TodoCreateComponent } from './todo-create/todo-create.component'
+
 
 @NgModule({
   declarations: [
@@ -28,12 +36,18 @@ import { TodoComponent } from './todo/todo.component';
     AdminComponent,
     RegisterComponent,
     TodoComponent,
+    TodoCreateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   exports: [
     MatIconModule,

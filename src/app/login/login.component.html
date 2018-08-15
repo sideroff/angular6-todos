@@ -1,9 +1,9 @@
 <div class="auth-form">
   <h1>Login</h1>
 
-  <form (submit)="login($event)">
-    <input [(ngModel)]="loginForm.email" type="text" name="email" placeholder="Email" />
-    <input [(ngModel)]="loginForm.password" type="password" name="password" placeholder="Password" />
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <input (ngModel)="email" type="text" name="email" placeholder="Email" />
+    <input (ngModel)="password" type="password" name="password" placeholder="Password" />
     <label for="loginSubmitButton">
       <strong>{{isLoggingIn ? 'Loading...' : 'Submit'}}</strong>
     </label>

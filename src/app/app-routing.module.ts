@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { TodoComponent } from './todo/todo.component';
+import { TodoCreateComponent } from './todo-create/todo-create.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,11 @@ const routes: Routes = [
   {
     path: 'active',
     component: ActiveComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'todo/create',
+    component: TodoCreateComponent,
     canActivate: [AuthGuard]
   },
   {

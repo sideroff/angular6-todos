@@ -28,6 +28,12 @@ export class SidebarComponent implements OnInit {
         label: 'home'
       },
       {
+        routerLink: '/todo/create',
+        routerLinkActive: 'active',
+        routerLinkActiveOptions: { exact: true },
+        icon: 'note_add'
+      },
+      {
         routerLink: 'active',
         routerLinkActive: 'active',
         routerLinkActiveOptions: { exact: true },

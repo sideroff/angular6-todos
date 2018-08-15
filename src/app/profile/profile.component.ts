@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../firebase.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,16 +7,17 @@ import { FirebaseService } from '../firebase.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private firebase: FirebaseService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   logout() {
-    this.firebase.instance.auth().signOut().then(response => {
-      console.log('successfully logged out')
-    }).catch(error => {
-      console.log('could not log out')
-    })
+    console.log('logging out')
+    // this.firebase.instance.auth().signOut().then(response => {
+    //   console.log('successfully logged out')
+    // }).catch(error => {
+    //   console.log('could not log out')
+    // })
   }
 }

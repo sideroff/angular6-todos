@@ -8,18 +8,19 @@ import { FirebaseService } from './firebase.service';
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
 
-  constructor(private firebase: FirebaseService, private router: Router) { }
+  constructor(private router: Router, private firebase: FirebaseService) {
+  }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    let loggedIn = !!this.firebase.instance.auth().currentUser;
+    let flag = !!this.firebase.user
 
-    if (loggedIn) return true;
-    
+    if (flag) return flag;
+
     const [returnUrl, returnQueryParams] = state.url.split('?');
     this.router.navigate(['/login'], { queryParams: { returnUrl, returnQueryParams } });
 
     return false;
   }
 
-  canActivateChild() { return false; }
+  canActivateChild() { return !!this.firebase.user; }
 }

@@ -14,7 +14,7 @@ nav {
                 display: block;
             }
 
-            .active {
+            .active, :hover, :active {
                 background-color: #00a8ff;
             }
         }

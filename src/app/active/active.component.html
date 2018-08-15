@@ -1,3 +1,5 @@
-<p>
-  active works!
-</p>
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.title}}
+  </li>
+</ul>
