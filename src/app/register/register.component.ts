@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router'
+import { FirebaseService } from '../firebase.service';
+import { VexService } from '../vex.service';
 
 
 @Component({
@@ -7,33 +9,27 @@ import { Router } from '@angular/router'
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
-  registerForm = {
-    email: '',
-    password: '',
-    confirmPassword: ''
-  }
-  isRegistering = false
+export class RegisterComponent {
 
+  email: string = ''
+  password: string = ''
+  confirmPassword: string = ''
+  isRegistering: boolean = false
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private firebase: FirebaseService, private vex: VexService) { }
 
-  ngOnInit() {
-  }
+  register(registerForm) {
+    let formValues = registerForm.value
 
-  register(event) {
-    event.preventDefault()
-
-    // this.isRegistering = true
-    // this.firebase.instance.auth().createUserWithEmailAndPassword(this.registerForm.email, this.registerForm.password).then(response => {
-    //   console.log('registration successful', response)
-    //   this.router.navigateByUrl('')
-    //   this.isRegistering = false
-    // }).catch(error => {
-    //   console.log('could not register', error)
-
-    //   this.isRegistering = false
-    // })
+    this.isRegistering = true
+    this.firebase.auth.auth.createUserWithEmailAndPassword(formValues.email, formValues.password).then(response => {
+      this.vex.instance.dialog.alert('You have registered successfully!')
+      this.router.navigateByUrl('')
+      this.isRegistering = false
+    }).catch(error => {
+      this.vex.instance.dialog.alert(error.message || 'There was a problem while registering you.')
+      this.isRegistering = false
+    })
   }
 
 }

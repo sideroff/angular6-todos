@@ -1,10 +1,10 @@
 <div class="auth-form">
   <h1>Register</h1>
 
-  <form (submit)="register($event)">
-    <input [(ngModel)]="registerForm.email" type="text" name="email" placeholder="Email" />
-    <input [(ngModel)]="registerForm.password" type="password" name="password" placeholder="Password" />
-    <input [(ngModel)]="registerForm.confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" />
+  <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <input (ngModel)="email" type="text" name="email" placeholder="Email" />
+    <input (ngModel)="password" type="password" name="password" placeholder="Password" />
+    <input (ngModel)="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" />
     <label for="registerSubmitButton">
       <strong>{{isRegistering ? 'Loading...' : 'Submit'}}</strong>
     </label>
