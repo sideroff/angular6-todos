@@ -1,9 +1,9 @@
 <div class="todo-form">
-  <h1>Create Todo</h1>
+  <h1>Create todo</h1>
 
-  <form (submit)="create($event)">
-    <input [(ngModel)]="todo.title" type="text" name="title" placeholder="Title e.g. {{titlePlaceholder}}" />
-    <input [(ngModel)]="todo.description" type="textarea" name="description" placeholder="Additional info..." />
+  <form #todoForm="ngForm" (ngSubmit)="create(todoForm)">
+    <input (ngModel)="title" type="text" name="title" placeholder="Title e.g. {{titlePlaceholder}}" />
+    <input (ngModel)="description" type="textarea" name="description" placeholder="Additional info..." />
     <label for="todoSubmitButton">
       <strong>{{isCreatingTodo ? 'Loading...' : 'Submit'}}</strong>
     </label>

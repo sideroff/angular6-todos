@@ -23,17 +23,11 @@ export class FirebaseService {
     this.auth.authState.subscribe(user => {
       this.user = user
 
-      this.activeTodos = this.user ? this.db.list(`todos/${this.user.uid}/active`).valueChanges() : null
-      this.doneTodos = this.user ? this.db.list(`todos/${this.user.uid}/done`).valueChanges() : null
+      this.activeTodos = this.user ? this.db.list(`todos/${this.user.uid}/active`) : null
+      this.doneTodos = this.user ? this.db.list(`todos/${this.user.uid}/done`) : null
 
       this.hasLoaded = true
     })
-  }
-
-  getActiveTodos() {
-    if (!this.user) return;
-
-    return this.activeTodos
   }
 
   isLoggedIn(): Observable<boolean> {
@@ -41,11 +35,12 @@ export class FirebaseService {
     return this.auth.authState.pipe(map(u => !!u))
   }
 
+  getActiveTodos() {
+    return this.activeTodos ? this.activeTodos.valueChanges() : null
+  }
 
   getDoneTodos() {
-    if (!this.user) return;
-
-    return this.doneTodos
+    return this.doneTodos ? this.doneTodos.valueChanges() : null
   }
 
   addTodo(todo) {
