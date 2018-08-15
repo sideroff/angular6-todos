@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirebaseService } from './firebase.service';
 
 
 @Component({
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() { }
+  firebase: FirebaseService
+
+  constructor(firebase: FirebaseService) {
+    this.firebase = firebase
+  }
 }

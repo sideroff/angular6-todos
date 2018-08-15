@@ -21,23 +21,22 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login(loginForm) {
-    console.log(loginForm.value)
-
+    let formValues = loginForm.value
     this.isLoggingIn = true
-    // this.firebase.auth.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then(response => {
-    //   // this.popupService.addMessage('success', 'You have successfully logged in!')
-    //   console.log('logged in', response)
+    this.firebase.auth.auth.signInWithEmailAndPassword(formValues.email, formValues.password).then(response => {
+      // this.popupService.addMessage('success', 'You have successfully logged in!')
+      console.log('logged in', response)
 
-    //   this.isLoggingIn = false
+      this.isLoggingIn = false
 
-    //   let url = this.route.snapshot.queryParams.returnUrl || ''
+      let url = this.route.snapshot.queryParams.returnUrl || ''
 
-    //   this.router.navigateByUrl(url)
-    // }).catch(error => {
-    //   // this.popupService.addMessage('error', error.message)
-    //   console.log('error logging in', error)
+      this.router.navigateByUrl(url)
+    }).catch(error => {
+      // this.popupService.addMessage('error', error.message)
+      console.log('error logging in', error)
 
-    //   this.isLoggingIn = false
-    // })
+      this.isLoggingIn = false
+    })
   }
 }

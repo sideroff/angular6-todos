@@ -1,4 +1,13 @@
-<div id="container">
+<div class="loader" *ngIf="!firebase.hasLoaded">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div *ngIf="firebase.hasLoaded" id="container">
   <app-sidebar></app-sidebar>
 
   <div id="content">

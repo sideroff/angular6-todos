@@ -22,6 +22,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from './../environments/environment';
 import { TodoCreateComponent } from './todo-create/todo-create.component'
+import { FirebaseService } from './firebase.service';
 
 
 @NgModule({
@@ -52,7 +53,7 @@ import { TodoCreateComponent } from './todo-create/todo-create.component'
   exports: [
     MatIconModule,
   ],
-  providers: [AuthGuard],
+  providers: [FirebaseService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

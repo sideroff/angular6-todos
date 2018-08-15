@@ -23,6 +23,7 @@ export class TodoCreateComponent implements OnInit {
   }
   possibleTitles: string[]
   titlePlaceholder: string
+  isCreatingTodo: boolean
 
   constructor(private firebase: FirebaseService) {
     this.possibleTitles = ['Buy groceries', 'Walk the dog', 'Start that project', 'Check email', 'Meet with SO', 'Hit the gym', 'Read']
@@ -40,7 +41,7 @@ export class TodoCreateComponent implements OnInit {
 
   create(event) {
     event.preventDefault()
-    console.log(this.firebase.addTodo(this.todo))
+    // console.log(this.firebase.addTodo(this.todo))
   }
 
 }

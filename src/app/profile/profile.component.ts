@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FirebaseService } from '../firebase.service';
+import { VexService } from '../vex.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,17 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private vex: VexService, private firebase: FirebaseService) { }
 
   ngOnInit() {
   }
 
   logout() {
-    console.log('logging out')
-    // this.firebase.instance.auth().signOut().then(response => {
-    //   console.log('successfully logged out')
-    // }).catch(error => {
-    //   console.log('could not log out')
-    // })
+    this.firebase.auth.auth.signOut().then(() => {
+      this.vex.instance.dialog.alert('You have signed out successfully')
+    }).catch(error => {
+      this.vex.instance.dialog.alert(error.message || 'There was a problem while logging you out.')
+    })
   }
 }
