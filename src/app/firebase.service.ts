@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import {
+  AngularFirestoreDocument,
+  AngularFirestore,
+  AngularFirestoreCollection
+} from 'angularfire2/firestore'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,13 +14,13 @@ import { map } from 'rxjs/operators';
 })
 export class FirebaseService {
   hasLoaded: boolean = false
-  db: AngularFireDatabase
+  db: AngularFirestore
   auth: AngularFireAuth
   activeTodos: any
   doneTodos: any
   user: any
 
-  constructor(db: AngularFireDatabase, auth: AngularFireAuth) {
+  constructor(db: AngularFirestore, auth: AngularFireAuth) {
     this.db = db
     this.auth = auth
     this.user = null
@@ -23,8 +28,8 @@ export class FirebaseService {
     this.auth.authState.subscribe(user => {
       this.user = user
 
-      this.activeTodos = this.user ? this.db.list(`todos/${this.user.uid}/active`) : null
-      this.doneTodos = this.user ? this.db.list(`todos/${this.user.uid}/done`) : null
+      this.activeTodos = this.user ? this.db.collection(`todos/${this.user.uid}/active`) : null
+      this.doneTodos = this.user ? this.db.collection(`todos/${this.user.uid}/done`) : null
 
       this.hasLoaded = true
     })
@@ -44,7 +49,7 @@ export class FirebaseService {
   }
 
   addTodo(todo) {
-    return this.activeTodos.push(todo)
+    return this.activeTodos.add(todo)
   }
 
   markTodoAsDone(todoId) {

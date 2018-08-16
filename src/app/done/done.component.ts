@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FirebaseService } from '../firebase.service';
 
 @Component({
   selector: 'app-done',
   templateUrl: './done.component.html',
   styleUrls: ['./done.component.scss']
 })
-export class DoneComponent implements OnInit {
+export class DoneComponent {
+  items: Observable<any[]>;
+  userId: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(firebase: FirebaseService) {
+    this.items = firebase.getDoneTodos()
   }
 
 }

@@ -1,3 +1,13 @@
-<p>
-  done works!
-</p>
+<div *ngIf="items | async as returnedItems; else loading">
+  <ng-container *ngIf="returnedItems.length; else noItems">
+    <ul *ngFor="let item of returnedItems">
+      <li class="text">
+        {{item.title}}
+      </li>
+    </ul>
+  </ng-container>
+  <ng-template #noItems>You dont have any items</ng-template>
+</div>
+<ng-template #loading>
+  Getting your items
+</ng-template>
