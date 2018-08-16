@@ -161,3 +161,20 @@ body {
         transform: translate(19px, 0);
     }
 }
+
+.no-items {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-row-gap: 5rem;
+
+    img {
+        width: 40%;
+    }
+
+    div {
+        font-weight: 500;
+        font-size: 2rem;
+        color: gray;
+    }
+}

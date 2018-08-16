@@ -6,7 +6,16 @@
       </li>
     </ul>
   </ng-container>
-  <ng-template #noItems>You dont have any items</ng-template>
+  <ng-template #noItems>
+    <div class="no-items">
+      <img src="./../../assets/sad-face.png" alt="sad face">
+      <div>You dont have any items</div>
+      <div>
+        <a routerLink="/todo/create">Add some...</a>
+      </div>
+
+    </div>
+  </ng-template>
 </div>
 
 <ng-template #loading>
