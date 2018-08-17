@@ -178,3 +178,18 @@ body {
         color: gray;
     }
 }
+
+.todo-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-around;
+
+    .left {
+        justify-self: flex-start;
+    }
+
+    .right {
+        justify-self: flex-end;
+        cursor: pointer;
+    }
+}

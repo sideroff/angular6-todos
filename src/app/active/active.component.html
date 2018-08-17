@@ -1,8 +1,13 @@
 <div *ngIf="items | async as returnedItems; else loading">
   <ng-container *ngIf="returnedItems.length; else noItems">
     <ul *ngFor="let item of returnedItems">
-      <li class="text">
-        {{item.title}}
+      <li class="todo-container text">
+        <div class="left">
+          {{item.title}}
+        </div>
+        <div class="right" (click)="markTodoAsDone(item)">
+          <mat-icon>done</mat-icon>
+        </div>
       </li>
     </ul>
   </ng-container>

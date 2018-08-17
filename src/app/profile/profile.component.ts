@@ -9,8 +9,11 @@ import { VexService } from '../vex.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  userEmail: string
 
-  constructor(private router: Router, private vex: VexService, private firebase: FirebaseService) { }
+  constructor(private router: Router, private vex: VexService, private firebase: FirebaseService) {
+    this.userEmail = firebase.user.email
+  }
 
   ngOnInit() {
   }
@@ -18,6 +21,7 @@ export class ProfileComponent implements OnInit {
   logout() {
     this.firebase.auth.auth.signOut().then(() => {
       this.vex.instance.dialog.alert('You have signed out successfully')
+      this.router.navigateByUrl('')
     }).catch(error => {
       this.vex.instance.dialog.alert(error.message || 'There was a problem while logging you out.')
     })
