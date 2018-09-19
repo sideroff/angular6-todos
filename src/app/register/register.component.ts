@@ -21,6 +21,10 @@ export class RegisterComponent {
   register(registerForm) {
     let formValues = registerForm.value
 
+    if(formValues.password !== formValues.confirmPassword) {
+      return this.vex.instance.dialog.alert('Passwords do not match.')
+    }
+
     this.isRegistering = true
     this.firebase.auth.auth.createUserWithEmailAndPassword(formValues.email, formValues.password).then(response => {
       this.vex.instance.dialog.alert('You have registered successfully!')

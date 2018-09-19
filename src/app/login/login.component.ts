@@ -28,7 +28,8 @@ export class LoginComponent {
 
       this.router.navigateByUrl(url)
     }).catch(error => {
-      this.vex.instance.alert(error.message)
+      console.log(this.vex.instance)
+      this.vex.instance.dialog.alert(error.message)
       this.isLoggingIn = false
     })
   }
